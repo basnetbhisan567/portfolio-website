@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bhisan Basnet — Portfolio</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Bhisan Basnet — Freshman Computer Science student passionate about C++, full-stack development, and AI. Explore my projects and resume." />
+  <meta name="keywords" content="Bhisan Basnet, portfolio, C++, software engineering, computer science, student developer, full-stack, Youngstown State University" />
+  <link rel="canonical" href="https://bhisanbasnet.com" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Bhisan Basnet — Portfolio" />
+  <meta property="og:description" content="C++ projects, clean code, and practical development." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://bhisanbasnet.com" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1517697471339-4aa32003c11a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" />
+  
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#0a0a0a" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" />
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- GSAP Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/ScrollTrigger.min.js" defer></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Background Video -->
+    <video autoplay muted loop playsinline class="fixed-bg">
+     <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-blue-geometric-shapes-background-1618-large.mp4" type="video/mp4">
+     Your browser does not support the video tag.
+    </video>
+
+    <!-- Matrix Background Canvas -->
+    <canvas id="matrix-canvas"></canvas>
+
+  <!-- ================= HEADER ================= -->
+  <header class="header" role="banner">
+    <div class="container header__inner">
+      <div class="brand">
+        <!-- Terminal Scramble Header -->
+        <div class="terminal-scramble-header">
+          <h1 id="terminal-text" class="brand__name" data-text="Bhisan Basnet">Bhisan Basnet</h1>
+          <div class="brand__avatar-container">
+            <!-- Your Photo Here - Replace with your actual photo -->
+            <img src="photo.jpg.jpg" alt="Bhisan Basnet" class="brand__avatar">
+          </div>
+          <span id="terminal-cursor" class="terminal-cursor"></span>
+        </div>
+        <p class="brand__tagline">
+          CS Student • Software Engineering Enthusiast • C++ Developer
+        </p>
+      </div>
+
+      <!-- NAVIGATION -->
+      <nav class="nav" aria-label="Primary navigation">
+        <button class="nav__toggle" aria-expanded="false" aria-controls="nav-list">
+          <span class="nav__toggle-line"></span>
+          <span class="nav__toggle-line"></span>
+          <span class="nav__toggle-line"></span>
+        </button>
+
+        <ul class="nav__list" id="nav-list">
+          <li><a class="nav__link" href="#about">About</a></li>
+          <li><a class="nav__link" href="#projects">Projects</a></li>
+          <li><a class="nav__link" href="#skills">Skills</a></li>
+          <li><a class="nav__link" href="#education">Education</a></li>
+          <li><a class="nav__link" href="#resume">Resume</a></li>
+          <li><a class="nav__link" href="#contact">Contact</a></li>
+        </ul>
+        
+        <!-- Theme Toggle Button -->
+        <button class="theme-toggle" aria-label="Toggle theme" title="Switch to Light Mode">
+          <i class="fas fa-sun"></i>
+          <span class="sr-only">Toggle theme</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================= MAIN ================= -->
+  <main id="main">
+    <!-- HERO SECTION -->
+    <section class="hero section visible" id="hero" aria-label="Introduction">
+      <div class="container hero__inner">
+        <!-- Your Profile Photo on Left -->
+        <div class="hero-device profile-photo-container">
+          <div class="profile-frame">
+            <div class="slideshow-wrapper">
+             <img src="Bhisan Basnet.jpg" alt="Bhisan Basnet" class="profile-photo">
+             <img src="photo.jpg.jpg" alt="Bhisan Basnet" class="profile-photo">
+             <img src="IMG_0161[1] (1).jpg" alt="Bhisan basnet" class="profile-photo">
+            </div>
+          <div class="profile-glow"></div>
+          </div>
+        </div>
+        
+        <div class="hero-content">
+          <!-- Canvas for 3D Particles -->
+          <canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+          <h2 class="hero__title glow">Building Reliable Software from the Ground Up</h2>
+          
+          <!-- Typing Animation -->
+          <div class="typing-container">
+            <div id="typewriter-text" class="typewriter-text"></div>
+            <span id="typewriter-cursor" class="typewriter-cursor"></span>
+          </div>
+          
+          <p class="hero__subtitle">
+            I enjoy turning ideas into clean, efficient, and maintainable code. From C++ programming to practical tools, I focus on learning by building real-world applications.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#projects">View Projects</a>
+            <a class="btn btn--ghost" href="#contact">Get in Touch</a>
+          </div>
+        </div>
+        
+        <!-- Desktop Graphic on Right (unchanged) -->
+        <div class="hero-device desktop-graphic"></div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section enhanced-section fade-in">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section__title">About Me</h2>
+          <div class="frame-controls">
+            <div class="frame-control" title="Close Section"></div>
+            <div class="frame-control" title="Minimize Content"></div>
+            <div class="frame-control" title="Expand Section"></div>
+          </div>
+        </div>
+        <div class="section-content">
+          <p class="section__text">
+            I'm a freshman pursuing a Bachelor's degree in Computer Science at Youngstown State University. My interests include low-level programming, AI, and building efficient data structures. I believe in the "learn by doing" approach—writing code, breaking it, debugging it, and improving it.
+          </p>
+
+          <div class="about-content">
+            <div class="about-text">
+              <h3 class="section__subtitle">Currently Learning</h3>
+              <p>
+                Deepening my understanding of <strong>Memory Management</strong> in C++, exploring <strong>Data Structures</strong> (Linked Lists, Trees), and learning <strong>Git</strong> for version control.
+              </p>
+
+              <h3 class="section__subtitle">Goals</h3>
+              <ul class="goals-list">
+                <li>Secure a Summer Internship in Software Development.</li>
+                <li>Contribute to an Open Source C++ repository.</li>
+                <li>Master the fundamentals of Algorithms and Complexity Analysis.</li>
+              </ul>
+            </div>
+            
+            <div class="about-highlights">
+              <div class="highlight-card">
+                <i class="fas fa-microchip"></i>
+                <h4>Low-Level Programming</h4>
+                <p>C++ & Memory Management</p>
+              </div>
+              <div class="highlight-card">
+                <i class="fas fa-code"></i>
+                <h4>Clean Code</h4>
+                <p>Readable & Maintainable</p>
+              </div>
+              <div class="highlight-card">
+                <i class="fas fa-rocket"></i>
+                <h4>Fast Learning</h4>
+                <p>Adapt & Implement Quickly</p>
+              </div>
+              <div class="highlight-card">
+                <i class="fas fa-project-diagram"></i>
+                <h4>Problem Solving</h4>
+                <p>Algorithmic Thinking</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section section--alt enhanced-section fade-in">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section__title">Featured Projects</h2>
+          <div class="frame-controls">
+            <div class="frame-control" title="Close Section"></div>
+            <div class="frame-control" title="Minimize Content"></div>
+            <div class="frame-control" title="Expand Section"></div>
+          </div>
+        </div>
+
+        <!-- Horizontal Scroll Gallery -->
+        <div class="projects-horizontal-container">
+          <div class="projects-horizontal-scroll">
+            <!-- Project 1 - Enhanced -->
+            <article class="project-horizontal-card">
+              <div class="flex justify-between items-start mb-4">
+                <h3 class="text-xl font-bold text-white">Snake Game</h3>
+                <span class="badge">C++ • Linked List</span>
+              </div>
+              <p class="text-gray-300 mb-4">
+                A classic console-based game built to master object-oriented principles. Implements custom collision detection, dynamic memory for the snake's tail, and a smooth game loop.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="skill-tag">Vectors</span>
+                <span class="skill-tag">Game Loop</span>
+                <span class="skill-tag">Input Handling</span>
+              </div>
+              <div class="card__actions">
+                <a class="btn btn--secondary" href="https://drive.google.com/file/d/1VBnnWbejdySSFke-ojDTDFY1S1XW5cWZ/view" target="_blank" rel="noopener">Download</a>
+                <a class="btn btn--ghost" href="https://github.com/bhisanb/snake-game" target="_blank" rel="noopener">
+                  <i class="fab fa-github"></i> View Code
+                </a>
+              </div>
+              <div class="glow-effect"></div>
+            </article>
+
+            <!-- Project 2 - Enhanced -->
+            <article class="project-horizontal-card">
+              <div class="flex justify-between items-start mb-4">
+                <h3 class="text-xl font-bold text-white">Task Tracker</h3>
+                <span class="badge">C++ • File I/O</span>
+              </div>
+              <p class="text-gray-300 mb-4">
+                A persistent CLI task manager. It parses user commands to add, delete, and modify tasks, saving all data to local text files to ensure data persists between sessions.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="skill-tag">File Streams</span>
+                <span class="skill-tag">String Parsing</span>
+                <span class="skill-tag">Structs</span>
+              </div>
+              <div class="card__actions">
+                <a class="btn btn--secondary" href="https://drive.google.com/file/d/1VBnnWbejdySSFke-ojDTDFY1S1XW5cWZ/view" target="_blank" rel="noopener">Download</a>
+                <a class="btn btn--ghost" href="https://github.com/bhisanb/task-tracker" target="_blank" rel="noopener">
+                  <i class="fab fa-github"></i> View Code
+                </a>
+              </div>
+              <div class="glow-effect"></div>
+            </article>
+
+            <!-- Project 3 - Enhanced -->
+            <article class="project-horizontal-card">
+              <div class="flex justify-between items-start mb-4">
+                <h3 class="text-xl font-bold text-white">Linked List Text Editor</h3>
+                <span class="badge">In Progress</span>
+              </div>
+              <p class="text-gray-300 mb-4">
+                Building a command-line text editor that uses Doubly Linked Lists to handle cursor movement and text insertion efficiently, mimicking functionality found in VIM.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="skill-tag">Linked Lists</span>
+                <span class="skill-tag">Text Processing</span>
+                <span class="skill-tag">VIM-like</span>
+              </div>
+              <div class="card__actions">
+                <button class="btn btn--disabled" disabled>Coming Soon</button>
+              </div>
+              <div class="glow-effect"></div>
+            </article>
+
+            <!-- Additional Project Placeholder -->
+            <article class="project-horizontal-card">
+              <div class="flex justify-between items-start mb-4">
+                <h3 class="text-xl font-bold text-white">More Projects</h3>
+                <span class="badge">Coming Soon</span>
+              </div>
+              <p class="text-gray-300 mb-4">
+                I'm constantly working on new projects to expand my skills. Check back soon for more C++ applications, data structure implementations, and software tools.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="skill-tag">C++17/20</span>
+                <span class="skill-tag">Algorithms</span>
+                <span class="skill-tag">Optimization</span>
+              </div>
+              <div class="card__actions">
+                <a class="btn btn--ghost" href="https://github.com/bhisanb" target="_blank" rel="noopener">
+                  <i class="fab fa-github"></i> View All Projects
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section enhanced-section fade-in">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section__title">Technical Skills</h2>
+          <div class="frame-controls">
+            <div class="frame-control" title="Close Section"></div>
+            <div class="frame-control" title="Minimize Content"></div>
+            <div class="frame-control" title="Expand Section"></div>
+          </div>
+        </div>
+        
+        <!-- Enhanced Skill Grid -->
+        <div class="skills-grid">
+          <div class="skill-badge-enhanced" data-skill-type="language">
+            <i class="fab fa-cpp skill-icon"></i>
+            <div class="skill-name">C++</div>
+            <div class="skill-level">Intermediate</div>
+          </div>
+          
+          <div class="skill-badge-enhanced" data-skill-type="language">
+            <i class="fab fa-python skill-icon"></i>
+            <div class="skill-name">Python</div>
+            <div class="skill-level">Basic</div>
+          </div>
+          
+          <div class="skill-badge-enhanced" data-skill-type="language">
+            <i class="fab fa-js skill-icon"></i>
+            <div class="skill-name">JavaScript</div>
+            <div class="skill-level">Basic</div>
+          </div>
+          
+          <div class="skill-badge-enhanced" data-skill-type="tool">
+            <i class="fab fa-html5 skill-icon"></i>
+            <div class="skill-name">HTML5 / CSS3</div>
+            <div class="skill-level">Intermediate</div>
+          </div>
+          
+          <div class="skill-badge-enhanced" data-skill-type="tool">
+            <i class="fab fa-git-alt skill-icon"></i>
+            <div class="skill-name">Git & GitHub</div>
+            <div class="skill-level">Intermediate</div>
+          </div>
+          
+          <div class="skill-badge-enhanced" data-skill-type="tool">
+            <i class="fas fa-code skill-icon"></i>
+            <div class="skill-name">VS Code</div>
+            <div class="skill-level">Advanced</div>
+          </div>
+          
+          <div class="skill-badge-enhanced" data-skill-type="tool">
+            <i class="fab fa-linux skill-icon"></i>
+            <div class="skill-name">Linux / Bash</div>
+            <div class="skill-level">Intermediate</div>
+          </div>
+          
+          <div class="skill-badge-enhanced" data-skill-type="tool">
+            <i class="fas fa-terminal skill-icon"></i>
+            <div class="skill-name">VIM</div>
+            <div class="skill-level">Basic</div>
+          </div>
+          
+          <div class="skill-badge-enhanced" data-skill-type="concept">
+            <i class="fas fa-sitemap skill-icon"></i>
+            <div class="skill-name">Data Structures</div>
+            <div class="skill-level">Learning</div>
+          </div>
+          
+          <div class="skill-badge-enhanced" data-skill-type="concept">
+            <i class="fas fa-calculator skill-icon"></i>
+            <div class="skill-name">Algorithms</div>
+            <div class="skill-level">Learning</div>
+          </div>
+          
+          <div class="skill-badge-enhanced" data-skill-type="concept">
+            <i class="fas fa-file-alt skill-icon"></i>
+            <div class="skill-name">File System I/O</div>
+            <div class="skill-level">Intermediate</div>
+          </div>
+          
+          <div class="skill-badge-enhanced" data-skill-type="concept">
+            <i class="fas fa-cube skill-icon"></i>
+            <div class="skill-name">Object-Oriented Programming</div>
+            <div class="skill-level">Intermediate</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="section enhanced-section fade-in">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section__title">Education</h2>
+          <div class="frame-controls">
+            <div class="frame-control" title="Close Section"></div>
+            <div class="frame-control" title="Minimize Content"></div>
+            <div class="frame-control" title="Expand Section"></div>
+          </div>
+        </div>
+        
+        <div class="timeline">
+          <div class="timeline__item fade-in">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content">
+              <h3 class="timeline__title">B.Sc. in Computer Science</h3>
+              <p class="timeline__meta">Youngstown State University • 2024 - Present (Freshman)</p>
+              <p class="timeline__desc">
+                <strong>Relevant Coursework:</strong> Introduction to Computer Science, Calculus I & II, Communication Fundamentals.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline__item fade-in">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content">
+              <h3 class="timeline__title">Higher Secondary School — Computer Science</h3>
+              <p class="timeline__meta">Aakash Deep Secondary School • Graduated 2023</p>
+              <p class="timeline__desc">Major: Science (Physics & Computer Science). Secured top grades in programming fundamentals.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUME -->
+    <section id="resume" class="section section--alt enhanced-section fade-in">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section__title">Resume</h2>
+          <div class="frame-controls">
+            <div class="frame-control" title="Close Section"></div>
+            <div class="frame-control" title="Minimize Content"></div>
+            <div class="frame-control" title="Expand Section"></div>
+          </div>
+        </div>
+        <p class="section__text" style="margin-bottom: 2rem; max-width: 600px;">
+          Ready to bring my coding skills to your team. Click below to view my full academic and project history.
+        </p>
+        <a class="btn btn--primary" href="https://docs.google.com/document/d/1-K3UJNoOaVn5cSrwxlVoPVXSPXWqDfeXYja5KLQzmC8/export?format=pdf" target="_blank" rel="noopener">
+          <i class="fas fa-file-pdf"></i> Download Resume
+        </a>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section enhanced-section fade-in">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section__title">Contact Me</h2>
+          <div class="frame-controls">
+            <div class="frame-control" title="Close Section"></div>
+            <div class="frame-control" title="Minimize Content"></div>
+            <div class="frame-control" title="Expand Section"></div>
+          </div>
+        </div>
+        
+        <div class="contact-grid">
+          <!-- Contact Info -->
+          <div class="contact-info">
+            <p class="section__text">
+              I am currently open to internship opportunities or collaborative projects. Feel free to reach out!
+            </p>
+            <ul class="contact-list">
+              <li><i class="fas fa-envelope"></i> <a href="mailto:bbasnet08@student.ysu.edu" data-copy-email>bbasnet08@student.ysu.edu</a></li>
+              <li><i class="fas fa-envelope"></i> <a href="mailto:basnetbhisan567b@gmail.com" data-copy-email>basnetbhisan567b@gmail.com</a></li>
+              <li><i class="fab fa-github"></i> <a href="https://github.com/bhisanbasnet567b" target="_blank" rel="noopener">github.com/bhisanbasnet567</a></li>
+              <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/bhisanbasnet" target="_blank" rel="noopener">linkedin.com/in/bhisanbasnet</a></li>
+              <li><i class="fas fa-phone"></i> <a href="tel:+13304333710">+1 (330) 433-3710</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact Form -->
+          <form id="contact-form" class="contact-form">
+            <label><strong>Name</strong>
+              <input type="text" name="name" required placeholder="John Doe" />
+            </label>
+            <label><strong>Email</strong>
+              <input type="email" name="email" required placeholder="john@example.com" />
+            </label>
+            <label><strong>Message</strong>
+              <textarea name="message" rows="5" required placeholder="Hi, I'd like to discuss a project..."></textarea>
+            </label>
+            <div class="form__actions">
+              <button class="btn btn--primary" type="submit">Send Message</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__socials">
+        <a href="https://github.com/bhisanb" aria-label="GitHub" class="social-link"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/bhisanbasnet" aria-label="LinkedIn" class="social-link"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:bbasnet08@student.ysu.edu" aria-label="Email" class="social-link"><i class="fas fa-envelope"></i></a>
+      </div>
+      <p>© <span id="current-year"></span> Bhisan Basnet. Built with HTML, CSS, & C++ Passion.</p>
+    </div>
+  </footer>
+
+  <!-- System Status Bar -->
+  <div class="system-status-bar">
+    <div class="container">
+      <div class="status-content">
+        <div class="status-left">
+          <div class="status-indicator">
+            <div class="status-dot"></div>
+            <span class="status-text">SYSTEM ONLINE</span>
+          </div>
+          <div class="status-user">Bhisan Basnet @ Portfolio v3.0</div>
+        </div>
+        
+        <div class="status-right">
+          <!-- CPU Usage -->
+          <div class="status-item">
+            <div class="status-header">
+              <span class="status-label">CPU</span>
+              <span id="cpu-usage" class="status-value">0%</span>
+            </div>
+            <div class="status-bar">
+              <div id="cpu-bar" class="status-progress"></div>
+            </div>
+          </div>
+          
+          <!-- Memory Usage -->
+          <div class="status-item">
+            <div class="status-header">
+              <span class="status-label">MEM</span>
+              <span id="mem-usage" class="status-value">0%</span>
+            </div>
+            <div class="status-bar">
+              <div id="mem-bar" class="status-progress"></div>
+            </div>
+          </div>
+          
+          <!-- Network -->
+          <div class="status-item">
+            <div class="status-header">
+              <span class="status-label">NET</span>
+              <span id="net-speed" class="status-value">0 KB/s</span>
+            </div>
+            <div class="status-bar">
+              <div id="net-bar" class="status-progress"></div>
+            </div>
+          </div>
+          
+          <!-- Time -->
+          <div class="status-time" id="system-time">00:00:00</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Actions -->
+  <div class="floating-actions">
+    <button id="back-to-top" class="floating-btn" aria-label="Back to Top" title="Back to Top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
