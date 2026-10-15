@@ -1,0 +1,5 @@
+# robots.txt — https://bhisanbasnet.com/robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://bhisanbasnet.com/sitemap.xml
