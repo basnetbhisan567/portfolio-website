@@ -1,568 +1,744 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bhisan Basnet — Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Bhisan Basnet | Full-Stack Developer Portfolio</title>
+  <meta name="description" content="Portfolio of Bhisan Basnet — CS student at Collin College (Plano, TX). Full-stack development with React and Python, plus Java and C++. Open to internships." />
+  <meta name="author" content="Bhisan Basnet" />
+  <link rel="canonical" href="https://bhisanbasnet.com/" />
 
-  <!-- SEO -->
-  <meta name="description" content="Bhisan Basnet — Freshman Computer Science student passionate about C++, full-stack development, and AI. Explore my projects and resume." />
-  <meta name="keywords" content="Bhisan Basnet, portfolio, C++, software engineering, computer science, student developer, full-stack, Youngstown State University" />
-  <link rel="canonical" href="https://bhisanbasnet.com" />
-
-  <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Bhisan Basnet — Portfolio" />
-  <meta property="og:description" content="C++ projects, clean code, and practical development." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://bhisanbasnet.com" />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1517697471339-4aa32003c11a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" />
-  
+  <meta property="og:site_name" content="Bhisan Basnet Portfolio" />
+  <meta property="og:title" content="Bhisan Basnet | Full-Stack Developer Portfolio" />
+  <meta property="og:description" content="Full-stack apps with React & Python, Java, and C++. Built from scratch." />
+  <meta property="og:url" content="https://bhisanbasnet.com/" />
+  <meta property="og:image" content="https://bhisanbasnet.com/assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Bhisan Basnet — Full-Stack Developer Portfolio" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="theme-color" content="#05080f" id="meta-theme-color" />
 
-  <!-- Favicon -->
-  <link rel="icon" href="favicon.ico" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Bhisan Basnet",
+      "url": "https://bhisanbasnet.com/",
+      "jobTitle": "Computer Science Student",
+      "description": "CS student focused on full-stack development with React and Python, plus Java and C++.",
+      "email": "mailto:basnetbhisan567b@gmail.com",
+      "knowsAbout": ["C++", "Java", "Python", "JavaScript", "React", "Data Structures", "Algorithms"],
+      "sameAs": [
+        "https://github.com/bhisanbasnet567b",
+        "https://www.linkedin.com/in/bhisanbasnet"
+      ],
+      "alumniOf": [
+        { "@type": "CollegeOrUniversity", "name": "Collin College" },
+        { "@type": "CollegeOrUniversity", "name": "Youngstown State University" },
+        { "@type": "HighSchool", "name": "Aakash Deep Secondary School" }
+      ]
+    }
+  }
+  </script>
 
-  <!-- Fonts & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js');
+      var theme = 'dark';
+      try {
+        var saved = localStorage.getItem('bb-theme');
+        theme = saved === 'light' || saved === 'dark'
+          ? saved
+          : (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      } catch (e) { /* private mode */ }
+      root.setAttribute('data-theme', theme);
+      var meta = document.getElementById('meta-theme-color');
+      if (meta) meta.setAttribute('content', theme === 'light' ? '#f7f9fc' : '#05080f');
+      setTimeout(function () {
+        if (!window.__bbBooted) root.classList.remove('js');
+      }, 3500);
+    })();
+  </script>
 
-  <!-- GSAP Libraries -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/ScrollTrigger.min.js" defer></script>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='14'%20fill='%2305080f'/%3E%3Ctext%20x='32'%20y='43'%20font-family='monospace'%20font-weight='bold'%20font-size='26'%20fill='%23ff5fa2'%20text-anchor='middle'%3EBB%3C/text%3E%3C/svg%3E" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-    <!-- Background Video -->
-    <video autoplay muted loop playsinline class="fixed-bg">
-     <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-blue-geometric-shapes-background-1618-large.mp4" type="video/mp4">
-     Your browser does not support the video tag.
-    </video>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- Matrix Background Canvas -->
-    <canvas id="matrix-canvas"></canvas>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="fx-rays" aria-hidden="true"></div>
+  <div class="fx-vignette" aria-hidden="true"></div>
+  <div class="fx-grain" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-bar"></span></div>
 
-  <!-- ================= HEADER ================= -->
-  <header class="header" role="banner">
+  <header id="header" class="header">
     <div class="container header__inner">
-      <div class="brand">
-        <!-- Terminal Scramble Header -->
-        <div class="terminal-scramble-header">
-          <h1 id="terminal-text" class="brand__name" data-text="Bhisan Basnet">Bhisan Basnet</h1>
-          <div class="brand__avatar-container">
-            <!-- Your Photo Here - Replace with your actual photo -->
-            <img src="photo.jpg.jpg" alt="Bhisan Basnet" class="brand__avatar">
-          </div>
-          <span id="terminal-cursor" class="terminal-cursor"></span>
-        </div>
-        <p class="brand__tagline">
-          CS Student • Software Engineering Enthusiast • C++ Coder
-        </p>
-      </div>
+      <a class="brand" href="#hero" aria-label="Bhisan Basnet — back to top">
+        <span class="brand__mark mono">&lt;BB&nbsp;/&gt;</span>
+        <span class="brand__name">Bhisan Basnet</span>
+      </a>
 
-      <!-- NAVIGATION -->
-      <nav class="nav" aria-label="Primary navigation">
-        <button class="nav__toggle" aria-expanded="false" aria-controls="nav-list">
-          <span class="nav__toggle-line"></span>
-          <span class="nav__toggle-line"></span>
-          <span class="nav__toggle-line"></span>
+      <nav class="nav" aria-label="Primary">
+        <button class="nav__toggle" aria-expanded="false" aria-controls="nav-list" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
         </button>
-
         <ul class="nav__list" id="nav-list">
           <li><a class="nav__link" href="#about">About</a></li>
           <li><a class="nav__link" href="#projects">Projects</a></li>
           <li><a class="nav__link" href="#skills">Skills</a></li>
           <li><a class="nav__link" href="#education">Education</a></li>
-          <li><a class="nav__link" href="#resume">Resume</a></li>
           <li><a class="nav__link" href="#contact">Contact</a></li>
+          <li class="nav__item--resume">
+            <a class="nav__link" href="https://drive.google.com/file/d/1Hcp61254hFN1Z_XF3LhWE1eU6R5uRY2J/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Resume</a>
+          </li>
         </ul>
-        
-        <!-- Theme Toggle Button -->
-        <button class="theme-toggle" aria-label="Toggle theme" title="Switch to Light Mode">
-          <i class="fas fa-sun"></i>
-          <span class="sr-only">Toggle theme</span>
-        </button>
+        <div class="header__actions">
+          <button class="theme-toggle" data-theme-toggle aria-label="Switch theme">
+            <i class="fa-solid fa-sun" aria-hidden="true"></i>
+          </button>
+          <a class="btn btn--sm btn--primary header__resume"
+             href="https://drive.google.com/file/d/1Hcp61254hFN1Z_XF3LhWE1eU6R5uRY2J/view?usp=drive_link"
+             target="_blank" rel="noopener noreferrer">Resume</a>
+        </div>
       </nav>
     </div>
   </header>
 
-  <!-- ================= MAIN ================= -->
-  <main id="main">
-    <!-- HERO SECTION -->
-    <section class="hero section visible" id="hero" aria-label="Introduction">
+  <main id="main" tabindex="-1">
+
+    <!-- ================= HERO ================= -->
+    <section id="hero" class="hero" aria-label="Introduction">
       <div class="container hero__inner">
-        <!-- Your Profile Photo on Left -->
-        <div class="hero-device profile-photo-container">
-          <div class="profile-frame">
-            <div class="slideshow-wrapper">
-             <img src="Bhisan Basnet.jpg" alt="Bhisan Basnet" class="profile-photo">
-             <img src="photo.jpg.jpg" alt="Bhisan Basnet" class="profile-photo">
-             <img src="IMG_0161[1] (1).jpg" alt="Bhisan basnet" class="profile-photo">
-            </div>
-          <div class="profile-glow"></div>
-          </div>
-        </div>
-        
-        <div class="hero-content">
-          <!-- Canvas for 3D Particles -->
-          <canvas id="hero-canvas" aria-hidden="true"></canvas>
-
-          <h2 class="hero__title glow">Building Reliable Software from the Ground Up</h2>
-          
-          <!-- Typing Animation -->
-          <div class="typing-container">
-            <div id="typewriter-text" class="typewriter-text"></div>
-            <span id="typewriter-cursor" class="typewriter-cursor"></span>
-          </div>
-          
-          <p class="hero__subtitle">
-            I enjoy turning ideas into clean, efficient, and maintainable code. From C++ programming to practical tools, I focus on learning by building real-world applications.
+        <div class="hero__content">
+          <p class="hero__kicker mono hero-anim" style="--d:.05s">Computer Science Student · Plano, TX</p>
+          <h1 class="hero__title hero-anim" style="--d:.12s">Bhisan Basnet<span class="hero__dot">.</span></h1>
+          <p class="hero__typeline mono hero-anim" style="--d:.2s" aria-hidden="true">
+            <span id="typewriter"></span><span class="type-cursor"></span>
           </p>
-          <div class="hero__actions">
-            <a class="btn btn--primary" href="#projects">View Projects</a>
-            <a class="btn btn--ghost" href="#contact">Get in Touch</a>
+          <span class="sr-only">Full-stack developer and C++ programmer, open to internships.</span>
+          <p class="hero__lead hero-anim" style="--d:.28s">
+            CS student at Collin College (Plano, TX). I started at Youngstown State University,
+            built my foundation in C++ and Java, and I'm now deep into my first complete
+            full-stack application — React on the frontend, Python on the backend.
+          </p>
+          <div class="hero__cta hero-anim" style="--d:.36s">
+            <a class="btn btn--primary" href="#projects" data-magnetic>
+              View projects <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+            <a class="btn btn--ghost" href="#contact">Get in touch</a>
+          </div>
+          <dl class="hero__stats hero-anim" style="--d:.45s">
+            <div class="stat">
+              <dt class="stat__label">Years coding</dt>
+              <dd class="stat__value mono" data-count="2" data-suffix="+">2+</dd>
+            </div>
+            <div class="stat">
+              <dt class="stat__label">Projects shipped</dt>
+              <dd class="stat__value mono" data-count="3" data-suffix="">3</dd>
+            </div>
+            <div class="stat">
+              <dt class="stat__label">Languages in rotation</dt>
+              <dd class="stat__value mono" data-count="4" data-suffix="">4</dd>
+            </div>
+            <div class="stat">
+              <dt class="stat__label">Based in</dt>
+              <dd class="stat__value mono">Plano, TX</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="hero__visual hero-anim" style="--d:.3s">
+          <div class="terminal" aria-hidden="true">
+            <div class="terminal__bar">
+              <span class="terminal__dot terminal__dot--red"></span>
+              <span class="terminal__dot terminal__dot--yellow"></span>
+              <span class="terminal__dot terminal__dot--green"></span>
+              <span class="terminal__title mono">bhisan@portfolio: ~</span>
+            </div>
+            <div class="terminal__body mono" id="terminal-body"></div>
+          </div>
+          <span class="badge-float badge-float--1 mono" aria-hidden="true">React</span>
+          <span class="badge-float badge-float--2 mono" aria-hidden="true">Python</span>
+          <span class="badge-float badge-float--3 mono" aria-hidden="true">Java</span>
+        </div>
+      </div>
+
+      <a class="hero__scroll" href="#about" aria-label="Scroll to the about section"><span></span></a>
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+    <section id="about" class="section section--alt" data-accent>
+      <div class="section-bg" aria-hidden="true"></div>
+      <figure class="section-photo" aria-hidden="true">
+        <img src="assets/about-me.png" alt="" width="1600" height="900" loading="lazy" decoding="async" />
+      </figure>
+      <div class="container">
+        <header class="section__head" data-reveal>
+          <span class="section__index mono">01</span>
+          <div>
+            <h2 class="section__title">About me</h2>
+            <p class="section__lead">Low-level roots, full-stack ambitions.</p>
+          </div>
+        </header>
+
+        <div class="about-grid">
+          <div class="about-photo" data-reveal data-photo-fx>
+            <img src="assets/profile.png" alt="Portrait of Bhisan Basnet"
+                 width="480" height="600" loading="lazy" decoding="async" />
+          </div>
+
+          <div class="about-text" data-reveal>
+            <p>
+              I'm Bhisan Basnet, a Computer Science student at Collin College in Plano, Texas.
+              My journey started at Youngstown State University, where I wrote my first lines of
+              C++ and discovered I love understanding how software works at the lowest level —
+              memory, pointers, and the logic running beneath every program.
+            </p>
+            <p>
+              These days my focus is full-stack development. My first complete web application is
+              in its final stretch — a responsive <strong>React</strong> frontend backed by
+              <strong>Python</strong> — and my method hasn't changed since freshman year:
+              <strong>learn by doing</strong>. Write code, break it, debug it, rebuild it better.
+            </p>
+          </div>
+
+          <div class="facts-grid" data-reveal-group>
+            <div class="fact-card" data-reveal>
+              <i class="fa-solid fa-diagram-project" aria-hidden="true"></i>
+              <h3>Building</h3>
+              <p>Full-stack app — React + Python</p>
+            </div>
+            <div class="fact-card" data-reveal>
+              <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+              <h3>Learning</h3>
+              <p>Java OOP · Data Structures · Algorithms</p>
+            </div>
+            <div class="fact-card" data-reveal>
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+              <h3>Based in</h3>
+              <p>Plano, TX — Dallas metro</p>
+            </div>
+            <div class="fact-card" data-reveal>
+              <i class="fa-solid fa-briefcase" aria-hidden="true"></i>
+              <h3>Open to</h3>
+              <p>Internships — say hello</p>
+            </div>
           </div>
         </div>
-        
-        <!-- Desktop Graphic on Right (unchanged) -->
-        <div class="hero-device desktop-graphic"></div>
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="section enhanced-section fade-in">
+    <!-- ================= PROJECTS ================= -->
+    <section id="projects" class="section" data-accent="pink">
+      <div class="section-bg" aria-hidden="true"></div>
+      <figure class="section-photo" aria-hidden="true">
+        <img src="assets/projects-bg.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async" />
+      </figure>
       <div class="container">
-        <div class="section-header">
-          <h2 class="section__title">About Me</h2>
-          <div class="frame-controls">
-            <div class="frame-control" title="Close Section"></div>
-            <div class="frame-control" title="Minimize Content"></div>
-            <div class="frame-control" title="Expand Section"></div>
+        <header class="section__head" data-reveal>
+          <span class="section__index mono">02</span>
+          <div>
+            <h2 class="section__title">Projects</h2>
+            <p class="section__lead">Built to learn. Built to last.</p>
           </div>
-        </div>
-        <div class="section-content">
-          <p class="section__text">
-            I'm a freshman pursuing a Bachelor's degree in Computer Science at Youngstown State University. My interests include low-level programming, AI, and building efficient data structures. I believe in the "learn by doing" approach—writing code, breaking it, debugging it, and improving it.
+        </header>
+
+        <article class="project--featured" data-accent="cyan" data-reveal>
+          <div class="project__top">
+            <span class="pill pill--live"><span class="pill__dot"></span>In development</span>
+            <span class="pill">Featured</span>
+          </div>
+          <h3 class="project__title">CodeMaster — Full-Stack Web Application</h3>
+          <p class="project__desc">
+            My largest build yet — designed and coded from scratch: a responsive
+            <strong>React</strong> frontend talking to a <strong>Python</strong> backend,
+            with the API layer as the current milestone. This portfolio? Hand-built too,
+            in vanilla HTML, CSS, and JavaScript.
           </p>
+          <ul class="tag-list" aria-label="Technologies used">
+            <li class="tag">React</li>
+            <li class="tag">Python</li>
+            <li class="tag">JavaScript</li>
+            <li class="tag">REST API</li>
+          </ul>
+          <div class="project__actions">
+            <a class="btn btn--primary" href="https://github.com/bhisanbasnet567b/codemaster" target="_blank" rel="noopener noreferrer"
+               aria-label="CodeMaster source code on GitHub">
+              <i class="fa-brands fa-github" aria-hidden="true"></i> View code
+            </a>
+            <a class="btn btn--ghost" href="https://codemaster-eta.vercel.app" target="_blank" rel="noopener noreferrer"
+               aria-label="Open CodeMaster live application">
+              <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Live demo
+            </a>
+          </div>
+        </article>
 
-          <div class="about-content">
-            <div class="about-text">
-              <h3 class="section__subtitle">Currently Learning</h3>
-              <p>
-                Deepening my understanding of <strong>Memory Management</strong> in C++, exploring <strong>Data Structures</strong> (Linked Lists, Trees), and learning <strong>Git</strong> for version control.
+        <div class="carousel" data-carousel data-reveal>
+          <div class="carousel__track" tabindex="0" role="region" aria-label="Project cards — scroll horizontally" data-reveal-group>
+            <article class="project-card project-card--snake" data-reveal>
+              <div class="project-card__top">
+                <h3>Snake Game</h3>
+                <span class="pill">C++</span>
+              </div>
+              <p class="project-card__desc">
+                Console classic built to master OOP — custom collision detection, dynamic memory
+                for the snake's tail, and a smooth game loop.
               </p>
-
-              <h3 class="section__subtitle">Goals</h3>
-              <ul class="goals-list">
-                <li>Secure a Summer Internship in Software Development.</li>
-                <li>Contribute to an Open Source C++ repository.</li>
-                <li>Master the fundamentals of Algorithms and Complexity Analysis.</li>
+              <ul class="tag-list">
+                <li class="tag">OOP</li><li class="tag">Game loop</li><li class="tag">Input handling</li>
               </ul>
+              <div class="project-card__actions">
+                <a class="btn btn--sm btn--ghost" href="https://github.com/bhisanbasnet567b/snake-game" target="_blank" rel="noopener noreferrer"
+                   aria-label="Snake Game source code on GitHub">
+                  <i class="fa-brands fa-github" aria-hidden="true"></i> Code
+                </a>
+                <a class="btn btn--sm btn--ghost" href="https://drive.google.com/file/d/1VBnnWbejdySSFke-ojDTDFY1S1XW5cWZ/view" target="_blank" rel="noopener noreferrer"
+                   aria-label="Download the Snake Game executable">
+                  <i class="fa-solid fa-download" aria-hidden="true"></i> Download
+                </a>
+              </div>
+            </article>
+
+            <article class="project-card project-card--tracker" data-reveal>
+              <div class="project-card__top">
+                <h3>Task Tracker</h3>
+                <span class="pill">C++</span>
+              </div>
+              <p class="project-card__desc">
+                Persistent CLI task manager — parses commands to add, delete, and modify tasks,
+                saving everything to local files so data survives between sessions.
+              </p>
+              <ul class="tag-list">
+                <li class="tag">File streams</li><li class="tag">Parsing</li><li class="tag">Structs</li>
+              </ul>
+              <div class="project-card__actions">
+                <a class="btn btn--sm btn--ghost" href="https://github.com/bhisanbasnet567b/task-tracker" target="_blank" rel="noopener noreferrer"
+                   aria-label="Task Tracker source code on GitHub">
+                  <i class="fa-brands fa-github" aria-hidden="true"></i> Code
+                </a>
+              </div>
+            </article>
+
+            <article class="project-card project-card--portfolio" data-reveal>
+              <div class="project-card__top">
+                <h3>Portfolio Website</h3>
+                <span class="pill">HTML · CSS · JS</span>
+              </div>
+              <p class="project-card__desc">
+                The site you're on — hand-built with zero frameworks: dark/light theming, a live
+                system dashboard, canvas effects, and full accessibility support.
+              </p>
+              <ul class="tag-list">
+                <li class="tag">Responsive</li><li class="tag">Theming</li><li class="tag">Canvas</li>
+              </ul>
+              <div class="project-card__actions">
+                <span class="pill pill--live"><span class="pill__dot"></span>You are here</span>
+                <a class="btn btn--sm btn--ghost" href="https://github.com/bhisanbasnet567b/portfolio" target="_blank" rel="noopener noreferrer"
+                   aria-label="Portfolio website source code on GitHub">
+                  <i class="fa-brands fa-github" aria-hidden="true"></i> Source
+                </a>
+              </div>
+            </article>
+
+            <article class="project-card project-card--next" data-reveal>
+              <div class="project-card__top">
+                <h3>What's next</h3>
+                <span class="pill pill--live"><span class="pill__dot"></span>Cooking</span>
+              </div>
+              <p class="project-card__desc">
+                The full-stack app ships first, then its Python API goes live. Everything lands
+                on GitHub — come follow along.
+              </p>
+              <ul class="tag-list">
+                <li class="tag">Python API</li><li class="tag">Deployment</li>
+              </ul>
+              <div class="project-card__actions">
+                <a class="btn btn--sm btn--ghost" href="https://github.com/bhisanbasnet567b?tab=repositories" target="_blank" rel="noopener noreferrer"
+                   aria-label="All repositories on GitHub">
+                  <i class="fa-brands fa-github" aria-hidden="true"></i> All projects
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <div class="carousel__nav">
+            <button class="carousel__btn" type="button" data-dir="-1" aria-label="Previous projects">
+              <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+            </button>
+            <div class="carousel__dots"></div>
+            <button class="carousel__btn" type="button" data-dir="1" aria-label="Next projects">
+              <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SKILLS ================= -->
+    <section id="skills" class="section section--alt" data-accent="cyan">
+      <div class="section-bg" aria-hidden="true"></div>
+      <figure class="section-photo" aria-hidden="true">
+        <img src="assets/skills-bg.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async" />
+      </figure>
+      <div class="container">
+        <figure class="holo-figure holo-figure--skills tint-pink" data-holo data-parallax aria-hidden="true">
+          <img src="assets/me-skills.png" alt="" width="300" height="400" loading="lazy" decoding="async" />
+        </figure>
+
+        <header class="section__head" data-reveal>
+          <span class="section__index mono">03</span>
+          <div>
+            <h2 class="section__title">Skills</h2>
+            <p class="section__lead">Tools I think in.</p>
+          </div>
+        </header>
+
+        <div class="filter" role="group" aria-label="Filter skills" data-reveal>
+          <button class="filter__btn is-active" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter__btn" data-filter="languages" aria-pressed="false">Languages</button>
+          <button class="filter__btn" data-filter="tools" aria-pressed="false">Web &amp; Tools</button>
+          <button class="filter__btn" data-filter="cs" aria-pressed="false">Core CS</button>
+        </div>
+        <p class="sr-only" id="skills-status" role="status" aria-live="polite"></p>
+
+        <div class="skills-grid" data-reveal-group>
+          <article class="skill-card" data-category="languages" data-reveal>
+            <span class="skill-card__icon skill-card__icon--text mono brand-cpp" aria-hidden="true">C++</span>
+            <h3 class="skill-card__name">C++</h3>
+            <p class="skill-card__meta">Memory · pointers · OOP</p>
+            <div class="level-dots" role="img" aria-label="Proficiency: 3 of 4">
+              <span class="dot is-filled"></span><span class="dot is-filled"></span><span class="dot is-filled"></span><span class="dot"></span>
             </div>
-            
-            <div class="about-highlights">
-              <div class="highlight-card">
-                <i class="fas fa-microchip"></i>
-                <h4>Low-Level Programming</h4>
-                <p>C++ & Memory Management</p>
-              </div>
-              <div class="highlight-card">
-                <i class="fas fa-code"></i>
-                <h4>Clean Code</h4>
-                <p>Readable & Maintainable</p>
-              </div>
-              <div class="highlight-card">
-                <i class="fas fa-rocket"></i>
-                <h4>Fast Learning</h4>
-                <p>Adapt & Implement Quickly</p>
-              </div>
-              <div class="highlight-card">
-                <i class="fas fa-project-diagram"></i>
-                <h4>Problem Solving</h4>
-                <p>Algorithmic Thinking</p>
-              </div>
+          </article>
+
+          <article class="skill-card" data-category="languages" data-reveal>
+            <span class="skill-card__icon brand-java" aria-hidden="true"><i class="fa-brands fa-java"></i></span>
+            <h3 class="skill-card__name">Java</h3>
+            <p class="skill-card__meta">OOP · coursework</p>
+            <div class="level-dots" role="img" aria-label="Proficiency: 2 of 4">
+              <span class="dot is-filled"></span><span class="dot is-filled"></span><span class="dot"></span><span class="dot"></span>
             </div>
-          </div>
+          </article>
+
+          <article class="skill-card" data-category="languages" data-reveal>
+            <span class="skill-card__icon brand-js" aria-hidden="true"><i class="fa-brands fa-js"></i></span>
+            <h3 class="skill-card__name">JavaScript</h3>
+            <p class="skill-card__meta">DOM · async · ES6+</p>
+            <div class="level-dots" role="img" aria-label="Proficiency: 3 of 4">
+              <span class="dot is-filled"></span><span class="dot is-filled"></span><span class="dot is-filled"></span><span class="dot"></span>
+            </div>
+          </article>
+
+          <article class="skill-card" data-category="languages" data-reveal>
+            <span class="skill-card__icon brand-python" aria-hidden="true"><i class="fa-brands fa-python"></i></span>
+            <h3 class="skill-card__name">Python</h3>
+            <p class="skill-card__meta">Backend of my full-stack app</p>
+            <div class="level-dots" role="img" aria-label="Proficiency: 2 of 4">
+              <span class="dot is-filled"></span><span class="dot is-filled"></span><span class="dot"></span><span class="dot"></span>
+            </div>
+          </article>
+
+          <article class="skill-card" data-category="tools" data-reveal>
+            <span class="skill-card__icon brand-react" aria-hidden="true"><i class="fa-brands fa-react"></i></span>
+            <h3 class="skill-card__name">React</h3>
+            <p class="skill-card__meta">Frontend of my full-stack app</p>
+            <div class="level-dots" role="img" aria-label="Proficiency: 2 of 4">
+              <span class="dot is-filled"></span><span class="dot is-filled"></span><span class="dot"></span><span class="dot"></span>
+            </div>
+          </article>
+
+          <article class="skill-card" data-category="tools" data-reveal>
+            <span class="skill-card__icon brand-html" aria-hidden="true"><i class="fa-brands fa-html5"></i></span>
+            <h3 class="skill-card__name">HTML5 &amp; CSS3</h3>
+            <p class="skill-card__meta">Semantic · responsive</p>
+            <div class="level-dots" role="img" aria-label="Proficiency: 3 of 4">
+              <span class="dot is-filled"></span><span class="dot is-filled"></span><span class="dot is-filled"></span><span class="dot"></span>
+            </div>
+          </article>
+
+          <article class="skill-card" data-category="tools" data-reveal>
+            <span class="skill-card__icon brand-git" aria-hidden="true"><i class="fa-brands fa-git-alt"></i></span>
+            <h3 class="skill-card__name">Git &amp; GitHub</h3>
+            <p class="skill-card__meta">Branch · merge · PRs</p>
+            <div class="level-dots" role="img" aria-label="Proficiency: 3 of 4">
+              <span class="dot is-filled"></span><span class="dot is-filled"></span><span class="dot is-filled"></span><span class="dot"></span>
+            </div>
+          </article>
+
+          <article class="skill-card" data-category="tools" data-reveal>
+            <span class="skill-card__icon brand-vscode" aria-hidden="true"><i class="fa-solid fa-code"></i></span>
+            <h3 class="skill-card__name">VS Code</h3>
+            <p class="skill-card__meta">Debug · extensions</p>
+            <div class="level-dots" role="img" aria-label="Proficiency: 4 of 4">
+              <span class="dot is-filled"></span><span class="dot is-filled"></span><span class="dot is-filled"></span><span class="dot is-filled"></span>
+            </div>
+          </article>
+
+          <article class="skill-card" data-category="tools" data-reveal>
+            <span class="skill-card__icon brand-linux" aria-hidden="true"><i class="fa-brands fa-linux"></i></span>
+            <h3 class="skill-card__name">Linux &amp; Bash</h3>
+            <p class="skill-card__meta">Daily driver</p>
+            <div class="level-dots" role="img" aria-label="Proficiency: 2 of 4">
+              <span class="dot is-filled"></span><span class="dot is-filled"></span><span class="dot"></span><span class="dot"></span>
+            </div>
+          </article>
+
+          <article class="skill-card" data-category="cs" data-reveal>
+            <span class="skill-card__icon" aria-hidden="true"><i class="fa-solid fa-sitemap"></i></span>
+            <h3 class="skill-card__name">Data Structures</h3>
+            <p class="skill-card__meta">Lists · trees · stacks</p>
+            <div class="level-dots" role="img" aria-label="Proficiency: 2 of 4">
+              <span class="dot is-filled"></span><span class="dot is-filled"></span><span class="dot"></span><span class="dot"></span>
+            </div>
+          </article>
+
+          <article class="skill-card" data-category="cs" data-reveal>
+            <span class="skill-card__icon" aria-hidden="true"><i class="fa-solid fa-code-branch"></i></span>
+            <h3 class="skill-card__name">Algorithms</h3>
+            <p class="skill-card__meta">Complexity · searching</p>
+            <div class="level-dots" role="img" aria-label="Proficiency: 2 of 4">
+              <span class="dot is-filled"></span><span class="dot is-filled"></span><span class="dot"></span><span class="dot"></span>
+            </div>
+          </article>
+
+          <article class="skill-card" data-category="cs" data-reveal>
+            <span class="skill-card__icon" aria-hidden="true"><i class="fa-solid fa-cubes"></i></span>
+            <h3 class="skill-card__name">OOP</h3>
+            <p class="skill-card__meta">Design · patterns</p>
+            <div class="level-dots" role="img" aria-label="Proficiency: 3 of 4">
+              <span class="dot is-filled"></span><span class="dot is-filled"></span><span class="dot is-filled"></span><span class="dot"></span>
+            </div>
+          </article>
+
+          <article class="skill-card" data-category="cs" data-reveal>
+            <span class="skill-card__icon" aria-hidden="true"><i class="fa-solid fa-file-lines"></i></span>
+            <h3 class="skill-card__name">File I/O</h3>
+            <p class="skill-card__meta">Streams · persistence</p>
+            <div class="level-dots" role="img" aria-label="Proficiency: 3 of 4">
+              <span class="dot is-filled"></span><span class="dot is-filled"></span><span class="dot is-filled"></span><span class="dot"></span>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="section section--alt enhanced-section fade-in">
+    <!-- ================= EDUCATION ================= -->
+    <section id="education" class="section" data-accent="amber">
+      <div class="section-bg" aria-hidden="true"></div>
+      <figure class="section-photo" aria-hidden="true">
+        <img src="assets/education-bg.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async" />
+      </figure>
       <div class="container">
-        <div class="section-header">
-          <h2 class="section__title">Featured Projects</h2>
-          <div class="frame-controls">
-            <div class="frame-control" title="Close Section"></div>
-            <div class="frame-control" title="Minimize Content"></div>
-            <div class="frame-control" title="Expand Section"></div>
+        <header class="section__head" data-reveal>
+          <span class="section__index mono">04</span>
+          <div>
+            <h2 class="section__title">Education</h2>
+            <p class="section__lead">The path so far.</p>
           </div>
-        </div>
+        </header>
 
-        <!-- Horizontal Scroll Gallery -->
-        <div class="projects-horizontal-container">
-          <div class="projects-horizontal-scroll">
-            <!-- Project 1 - Enhanced -->
-            <article class="project-horizontal-card">
-              <div class="flex justify-between items-start mb-4">
-                <h3 class="text-xl font-bold text-white">Snake Game</h3>
-                <span class="badge">C++ • Linked List</span>
-              </div>
-              <p class="text-gray-300 mb-4">
-                A classic console-based game built to master object-oriented principles. Implements custom collision detection, dynamic memory for the snake's tail, and a smooth game loop.
-              </p>
-              <div class="flex flex-wrap gap-2 mb-6">
-                <span class="skill-tag">Vectors</span>
-                <span class="skill-tag">Game Loop</span>
-                <span class="skill-tag">Input Handling</span>
-              </div>
-              <div class="card__actions">
-                <a class="btn btn--secondary" href="https://drive.google.com/file/d/1VBnnWbejdySSFke-ojDTDFY1S1XW5cWZ/view" target="_blank" rel="noopener">Download</a>
-                <a class="btn btn--ghost" href="https://github.com/bhisanb/snake-game" target="_blank" rel="noopener">
-                  <i class="fab fa-github"></i> View Code
-                </a>
-              </div>
-              <div class="glow-effect"></div>
-            </article>
-
-            <!-- Project 2 - Enhanced -->
-            <article class="project-horizontal-card">
-              <div class="flex justify-between items-start mb-4">
-                <h3 class="text-xl font-bold text-white">Task Tracker</h3>
-                <span class="badge">C++ • File I/O</span>
-              </div>
-              <p class="text-gray-300 mb-4">
-                A persistent CLI task manager. It parses user commands to add, delete, and modify tasks, saving all data to local text files to ensure data persists between sessions.
-              </p>
-              <div class="flex flex-wrap gap-2 mb-6">
-                <span class="skill-tag">File Streams</span>
-                <span class="skill-tag">String Parsing</span>
-                <span class="skill-tag">Structs</span>
-              </div>
-              <div class="card__actions">
-                <a class="btn btn--secondary" href="https://drive.google.com/file/d/1VBnnWbejdySSFke-ojDTDFY1S1XW5cWZ/view" target="_blank" rel="noopener">Download</a>
-                <a class="btn btn--ghost" href="https://github.com/bhisanb/task-tracker" target="_blank" rel="noopener">
-                  <i class="fab fa-github"></i> View Code
-                </a>
-              </div>
-              <div class="glow-effect"></div>
-            </article>
-
-            <!-- Project 3 - Enhanced -->
-            <article class="project-horizontal-card">
-              <div class="flex justify-between items-start mb-4">
-                <h3 class="text-xl font-bold text-white">Linked List Text Editor</h3>
-                <span class="badge">In Progress</span>
-              </div>
-              <p class="text-gray-300 mb-4">
-                Building a command-line text editor that uses Doubly Linked Lists to handle cursor movement and text insertion efficiently, mimicking functionality found in VIM.
-              </p>
-              <div class="flex flex-wrap gap-2 mb-6">
-                <span class="skill-tag">Linked Lists</span>
-                <span class="skill-tag">Text Processing</span>
-                <span class="skill-tag">VIM-like</span>
-              </div>
-              <div class="card__actions">
-                <button class="btn btn--disabled" disabled>Coming Soon</button>
-              </div>
-              <div class="glow-effect"></div>
-            </article>
-
-            <!-- Additional Project Placeholder -->
-            <article class="project-horizontal-card">
-              <div class="flex justify-between items-start mb-4">
-                <h3 class="text-xl font-bold text-white">More Projects</h3>
-                <span class="badge">Coming Soon</span>
-              </div>
-              <p class="text-gray-300 mb-4">
-                I'm constantly working on new projects to expand my skills. Check back soon for more C++ applications, data structure implementations, and software tools.
-              </p>
-              <div class="flex flex-wrap gap-2 mb-6">
-                <span class="skill-tag">C++17/20</span>
-                <span class="skill-tag">Algorithms</span>
-                <span class="skill-tag">Optimization</span>
-              </div>
-              <div class="card__actions">
-                <a class="btn btn--ghost" href="https://github.com/bhisanb" target="_blank" rel="noopener">
-                  <i class="fab fa-github"></i> View All Projects
-                </a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills" class="section enhanced-section fade-in">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section__title">Technical Skills</h2>
-          <div class="frame-controls">
-            <div class="frame-control" title="Close Section"></div>
-            <div class="frame-control" title="Minimize Content"></div>
-            <div class="frame-control" title="Expand Section"></div>
-          </div>
-        </div>
-        
-        <!-- Enhanced Skill Grid -->
-        <div class="skills-grid">
-          <div class="skill-badge-enhanced" data-skill-type="language">
-            <i class="fab fa-cpp skill-icon"></i>
-            <div class="skill-name">C++</div>
-            <div class="skill-level">Intermediate</div>
-          </div>
-          
-          <div class="skill-badge-enhanced" data-skill-type="language">
-            <i class="fab fa-python skill-icon"></i>
-            <div class="skill-name">Python</div>
-            <div class="skill-level">Basic</div>
-          </div>
-          
-          <div class="skill-badge-enhanced" data-skill-type="language">
-            <i class="fab fa-js skill-icon"></i>
-            <div class="skill-name">JavaScript</div>
-            <div class="skill-level">Basic</div>
-          </div>
-          
-          <div class="skill-badge-enhanced" data-skill-type="tool">
-            <i class="fab fa-html5 skill-icon"></i>
-            <div class="skill-name">HTML5 / CSS3</div>
-            <div class="skill-level">Intermediate</div>
-          </div>
-          
-          <div class="skill-badge-enhanced" data-skill-type="tool">
-            <i class="fab fa-git-alt skill-icon"></i>
-            <div class="skill-name">Git & GitHub</div>
-            <div class="skill-level">Intermediate</div>
-          </div>
-          
-          <div class="skill-badge-enhanced" data-skill-type="tool">
-            <i class="fas fa-code skill-icon"></i>
-            <div class="skill-name">VS Code</div>
-            <div class="skill-level">Advanced</div>
-          </div>
-          
-          <div class="skill-badge-enhanced" data-skill-type="tool">
-            <i class="fab fa-linux skill-icon"></i>
-            <div class="skill-name">Linux / Bash</div>
-            <div class="skill-level">Intermediate</div>
-          </div>
-          
-          <div class="skill-badge-enhanced" data-skill-type="tool">
-            <i class="fas fa-terminal skill-icon"></i>
-            <div class="skill-name">VIM</div>
-            <div class="skill-level">Basic</div>
-          </div>
-          
-          <div class="skill-badge-enhanced" data-skill-type="concept">
-            <i class="fas fa-sitemap skill-icon"></i>
-            <div class="skill-name">Data Structures</div>
-            <div class="skill-level">Learning</div>
-          </div>
-          
-          <div class="skill-badge-enhanced" data-skill-type="concept">
-            <i class="fas fa-calculator skill-icon"></i>
-            <div class="skill-name">Algorithms</div>
-            <div class="skill-level">Learning</div>
-          </div>
-          
-          <div class="skill-badge-enhanced" data-skill-type="concept">
-            <i class="fas fa-file-alt skill-icon"></i>
-            <div class="skill-name">File System I/O</div>
-            <div class="skill-level">Intermediate</div>
-          </div>
-          
-          <div class="skill-badge-enhanced" data-skill-type="concept">
-            <i class="fas fa-cube skill-icon"></i>
-            <div class="skill-name">Object-Oriented Programming</div>
-            <div class="skill-level">Intermediate</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EDUCATION -->
-    <section id="education" class="section enhanced-section fade-in">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section__title">Education</h2>
-          <div class="frame-controls">
-            <div class="frame-control" title="Close Section"></div>
-            <div class="frame-control" title="Minimize Content"></div>
-            <div class="frame-control" title="Expand Section"></div>
-          </div>
-        </div>
-        
         <div class="timeline">
-          <div class="timeline__item fade-in">
-            <div class="timeline__dot"></div>
+          <div class="timeline__item" data-reveal>
+            <span class="timeline__dot" aria-hidden="true"></span>
             <div class="timeline__content">
-              <h3 class="timeline__title">B.Sc. in Computer Science</h3>
-              <p class="timeline__meta">Youngstown State University • 2024 - Present (Freshman)</p>
+              <h3>Collin College — A.S. Computer Science</h3>
+              <p class="timeline__meta mono">2026(Fall) — Present · Plano, TX</p>
               <p class="timeline__desc">
-                <strong>Relevant Coursework:</strong> Introduction to Computer Science, Calculus I & II, Communication Fundamentals.
+                Continuing my CS degree with a full-stack focus — data structures, Java, web
+                development, and preparing to transfer to a four-year university.
               </p>
             </div>
           </div>
 
-          <div class="timeline__item fade-in">
-            <div class="timeline__dot"></div>
+          <div class="timeline__item" data-reveal>
+            <span class="timeline__dot" aria-hidden="true"></span>
             <div class="timeline__content">
-              <h3 class="timeline__title">Higher Secondary School — Computer Science</h3>
-              <p class="timeline__meta">Aakash Deep Secondary School • Graduated 2023</p>
-              <p class="timeline__desc">Major: Science (Physics & Computer Science). Secured top grades in programming fundamentals.</p>
+              <h3>Youngstown State University — CS (Freshman Year)</h3>
+              <p class="timeline__meta mono">2025 — 2026(August) · Youngstown, OH</p>
+              <p class="timeline__desc">
+                Built my C++ foundation, shipped my first projects (Snake, Task Tracker), and fell
+                in love with systems programming.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline__item" data-reveal>
+            <span class="timeline__dot" aria-hidden="true"></span>
+            <div class="timeline__content">
+              <h3>Aakash Deep Secondary School — Science &amp; CS</h3>
+              <p class="timeline__meta mono">Graduated 2023</p>
+              <p class="timeline__desc">
+                Science major (Physics &amp; Computer Science). Top grades in programming fundamentals.
+              </p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- RESUME -->
-    <section id="resume" class="section section--alt enhanced-section fade-in">
+    <!-- ================= CONTACT ================= -->
+    <section id="contact" class="section section--alt" data-accent="violet">
+      <div class="section-bg" aria-hidden="true"></div>
+      <figure class="section-photo" aria-hidden="true">
+        <img src="assets/contact-bg.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async" />
+      </figure>
       <div class="container">
-        <div class="section-header">
-          <h2 class="section__title">Resume</h2>
-          <div class="frame-controls">
-            <div class="frame-control" title="Close Section"></div>
-            <div class="frame-control" title="Minimize Content"></div>
-            <div class="frame-control" title="Expand Section"></div>
-          </div>
-        </div>
-        <p class="section__text" style="margin-bottom: 2rem; max-width: 600px;">
-          Ready to bring my coding skills to your team. Click below to view my full academic and project history.
-        </p>
-        <a class="btn btn--primary" href="https://docs.google.com/document/d/1-K3UJNoOaVn5cSrwxlVoPVXSPXWqDfeXYja5KLQzmC8/export?format=pdf" target="_blank" rel="noopener">
-          <i class="fas fa-file-pdf"></i> Download Resume
-        </a>
-      </div>
-    </section>
+        <figure class="holo-figure holo-figure--contact tint-violet" data-holo data-parallax aria-hidden="true">
+          <img src="assets/me-contact.png" alt="" width="300" height="400" loading="lazy" decoding="async" />
+        </figure>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section enhanced-section fade-in">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section__title">Contact Me</h2>
-          <div class="frame-controls">
-            <div class="frame-control" title="Close Section"></div>
-            <div class="frame-control" title="Minimize Content"></div>
-            <div class="frame-control" title="Expand Section"></div>
+        <header class="section__head" data-reveal>
+          <span class="section__index mono">05</span>
+          <div>
+            <h2 class="section__title">Contact</h2>
+            <p class="section__lead">Let's build something.</p>
           </div>
-        </div>
-        
+        </header>
+
         <div class="contact-grid">
-          <!-- Contact Info -->
-          <div class="contact-info">
-            <p class="section__text">
-              I am currently open to internship opportunities or collaborative projects. Feel free to reach out!
+          <div class="contact-info" data-reveal>
+            <p class="contact-info__lead">
+              I'm currently open to internships, collaborative projects, and good conversations
+              about React, Python, Java, or C++. The fastest way to reach me is email.
             </p>
             <ul class="contact-list">
-              <li><i class="fas fa-envelope"></i> <a href="mailto:bbasnet08@student.ysu.edu" data-copy-email>bbasnet08@student.ysu.edu</a>(previous)</li>
-              <li><i class="fas fa-envelope"></i> <a href="mailto:bbasnet08@student.ysu.edu" data-copy-email>bbasnet2650@collin.edu</a></li>
-              <li><i class="fas fa-envelope"></i> <a href="mailto:basnetbhisan567b@gmail.com" data-copy-email>basnetbhisan567b@gmail.com</a></li>
-              <li><i class="fab fa-github"></i> <a href="https://github.com/bhisanbasnet567b" target="_blank" rel="noopener">github.com/bhisanbasnet567</a></li>
-              <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/bhisanbasnet" target="_blank" rel="noopener">linkedin.com/in/bhisanbasnet</a></li>
-              <li><i class="fas fa-phone"></i> <a href="tel:+13304333710">+1 (330) 433-3710</a></li>
+              <li class="contact-item">
+                <span class="contact-item__icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+                <div class="contact-item__body">
+                  <span class="contact-item__label mono">Email</span>
+                  <a href="mailto:basnetbhisan567b@gmail.com">basnetbhisan567b@gmail.com</a>
+                </div>
+                <button class="copy-btn" type="button" data-copy="basnetbhisan567b@gmail.com" aria-label="Copy email address">
+                  <i class="fa-regular fa-copy" aria-hidden="true"></i>
+                  <span class="sr-only js-copy-status" aria-live="polite">Copy email to clipboard</span>
+                </button>
+              </li>
+              <li class="contact-item">
+                <span class="contact-item__icon"><i class="fa-brands fa-github" aria-hidden="true"></i></span>
+                <div class="contact-item__body">
+                  <span class="contact-item__label mono">GitHub</span>
+                  <a href="https://github.com/bhisanbasnet567b" target="_blank" rel="noopener noreferrer">github.com/bhisanbasnet567b</a>
+                </div>
+              </li>
+              <li class="contact-item">
+                <span class="contact-item__icon"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></span>
+                <div class="contact-item__body">
+                  <span class="contact-item__label mono">LinkedIn</span>
+                  <a href="https://www.linkedin.com/in/bhisanbasnet" target="_blank" rel="noopener noreferrer">linkedin.com/in/bhisanbasnet</a>
+                </div>
+              </li>
+              <li class="contact-item">
+                <span class="contact-item__icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+                <div class="contact-item__body">
+                  <span class="contact-item__label mono">College Email</span>
+                  <a href="mailto:bbasnet2650@collin.edu">bbasnet2650@collin.edu</a>
+                </div>
+                <button class="copy-btn" type="button" data-copy="bbasnet2650@collin.edu" aria-label="Copy email address">
+                  <i class="fa-regular fa-copy" aria-hidden="true"></i>
+                  <span class="sr-only js-copy-status" aria-live="polite">Copy email to clipboard</span>
+                </button>
+              </li>
             </ul>
           </div>
 
-          <!-- Contact Form -->
-          <form id="contact-form" class="contact-form">
-            <label><strong>Name</strong>
-              <input type="text" name="name" required placeholder="John Doe" />
-            </label>
-            <label><strong>Email</strong>
-              <input type="email" name="email" required placeholder="john@example.com" />
-            </label>
-            <label><strong>Message</strong>
-              <textarea name="message" rows="5" required placeholder="Hi, I'd like to discuss a project..."></textarea>
-            </label>
-            <div class="form__actions">
-              <button class="btn btn--primary" type="submit">Send Message</button>
+          <div class="contact-form-wrap" data-reveal>
+            <form id="contact-form" class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+              <label class="honeypot-field" aria-hidden="true">
+                Leave this field empty
+                <input type="text" name="_gotcha" class="honeypot" tabindex="-1" autocomplete="off" />
+              </label>
+
+              <div class="form-field">
+                <label for="cf-name">Name</label>
+                <input id="cf-name" name="name" type="text" required minlength="2" maxlength="100" placeholder="John Doe" autocomplete="name" />
+              </div>
+              <div class="form-field">
+                <label for="cf-email">Email</label>
+                <input id="cf-email" name="email" type="email" required maxlength="150" placeholder="john@example.com" autocomplete="email" />
+              </div>
+              <div class="form-field">
+                <label for="cf-message">Message</label>
+                <textarea id="cf-message" name="message" rows="5" required minlength="10" maxlength="2000" placeholder="Hi Bhisan — I'd like to talk about…"></textarea>
+              </div>
+
+              <button class="btn btn--primary btn--block" type="submit">
+                Send message <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </button>
+              <p class="form-note">Opens your email app with the message pre-filled. Nothing is stored on this site.</p>
+            </form>
+
+            <div id="form-success" class="form-panel" tabindex="-1" role="status" hidden>
+              <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+              <h3 id="form-success-title">Message sent!</h3>
+              <p id="form-success-text">Thanks for reaching out — I'll get back to you soon.</p>
+              <button id="form-reset" class="btn btn--ghost btn--sm" type="button">Send another message</button>
             </div>
-          </form>
+
+            <div id="form-error" class="form-panel form-panel--error" tabindex="-1" role="alert" hidden>
+              <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+              <h3>Something went wrong</h3>
+              <p>Please email me directly at
+                <a href="mailto:bbasnet2650@collin.edu">bbasnet2650@collin.edu</a>.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer class="footer">
-    <div class="container">
-      <div class="footer__socials">
-        <a href="https://github.com/bhisanb" aria-label="GitHub" class="social-link"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/bhisanbasnet" aria-label="LinkedIn" class="social-link"><i class="fab fa-linkedin"></i></a>
-        <a href="mailto:bbasnet08@student.ysu.edu" aria-label="Email" class="social-link"><i class="fas fa-envelope"></i></a>
-      </div>
-      <p>© <span id="current-year"></span> Bhisan Basnet. Built with HTML, CSS, & C++ Passion.</p>
+    <div class="container footer__inner">
+      <span class="brand__mark mono">&lt;BB&nbsp;/&gt;</span>
+      <ul class="footer__socials">
+        <li><a class="social-link" href="https://github.com/bhisanbasnet567b" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a></li>
+        <li><a class="social-link" href="https://www.linkedin.com/in/bhisanbasnet" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a></li>
+        <li><a class="social-link" href="mailto:bbasnet2650@collin.edu" aria-label="Email"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a></li>
+      </ul>
+      <p class="footer__copy mono">© <span id="year">2026</span> Bhisan Basnet</p>
     </div>
   </footer>
 
-  <!-- System Status Bar -->
-  <div class="system-status-bar">
-    <div class="container">
-      <div class="status-content">
-        <div class="status-left">
-          <div class="status-indicator">
-            <div class="status-dot"></div>
-            <span class="status-text">SYSTEM ONLINE</span>
-          </div>
-          <div class="status-user">Bhisan Basnet @ Portfolio v3.0</div>
-        </div>
-        
-        <div class="status-right">
-          <!-- CPU Usage -->
-          <div class="status-item">
-            <div class="status-header">
-              <span class="status-label">CPU</span>
-              <span id="cpu-usage" class="status-value">0%</span>
-            </div>
-            <div class="status-bar">
-              <div id="cpu-bar" class="status-progress"></div>
-            </div>
-          </div>
-          
-          <!-- Memory Usage -->
-          <div class="status-item">
-            <div class="status-header">
-              <span class="status-label">MEM</span>
-              <span id="mem-usage" class="status-value">0%</span>
-            </div>
-            <div class="status-bar">
-              <div id="mem-bar" class="status-progress"></div>
-            </div>
-          </div>
-          
-          <!-- Network -->
-          <div class="status-item">
-            <div class="status-header">
-              <span class="status-label">NET</span>
-              <span id="net-speed" class="status-value">0 KB/s</span>
-            </div>
-            <div class="status-bar">
-              <div id="net-bar" class="status-progress"></div>
-            </div>
-          </div>
-          
-          <!-- Time -->
-          <div class="status-time" id="system-time">00:00:00</div>
-        </div>
-      </div>
+  <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <div class="status-bar" aria-hidden="true">
+    <div class="status-bar__group">
+      <span class="status-chip"><span class="status-dot"></span><span class="mono">ONLINE</span></span>
+      <span class="status-chip mono" title="Local time — Plano, TX (America/Chicago)">
+        <i class="fa-solid fa-clock" aria-hidden="true"></i>
+        <span class="hide-sm">PLANO, TX —&nbsp;</span><span id="status-time">--:--:--</span>
+      </span>
+    </div>
+    <div class="status-bar__group status-bar__group--metrics">
+      <span class="status-chip mono" title="Currently viewing section">
+        <i class="fa-solid fa-location-crosshairs" aria-hidden="true"></i>
+        <b id="status-section">HERO</b>
+      </span>
+      <span class="status-chip mono" title="Reading progress through the page">
+        <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+        <b id="status-progress">0%</b>
+      </span>
     </div>
   </div>
 
-  <!-- Floating Actions -->
-  <div class="floating-actions">
-    <button id="back-to-top" class="floating-btn" aria-label="Back to Top" title="Back to Top">
-      <i class="fas fa-arrow-up"></i>
-    </button>
-  </div>
-
-  <!-- Scripts -->
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
